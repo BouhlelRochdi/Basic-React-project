@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { Outlet } from 'react-router-dom';
+import Navbar from './navbar/navbar';
 
 function App() {
+
+  const menus = [
+    {label: 'categories', link: '/products/categories'}, 
+    // {label: 'product-list', link: '/product-list'},
+    {label: 'search', link: '/products/search'}
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar menuToSend={menus} />
+      <Outlet />
     </div>
   );
 }
